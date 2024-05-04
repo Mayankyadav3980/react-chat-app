@@ -1,0 +1,101 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+ height:100%;
+ font-family: 'arial';
+}
+
+/*  ChannelListContainer Css */
+
+.channel-list__container{
+  width: 30vw;
+  height: 100%;
+  display: flex;
+}
+.container{
+  display: flex;
+}
+
+.channel-list__leftbar{
+  width:20%;
+  height: 100vh;
+  background-color: #004CCB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #FFFFFF;
+  padding-top: 1.5rem;
+  
+}
+.user{
+  display: flex;
+  margin:1.5rem;
+  color:#FFFFFF;
+  font-size: 1.5rem;
+  align-items: center;
+}
+.user>h6{
+  font-size: 1rem;
+  color: #b3acac;
+}
+.add-conversations{
+display: flex;
+justify-content: space-between;
+color: #FFFFFF;
+padding: 7%;
+font-size: 1.5rem;
+}
+.channel-list__rightbar{
+  width:80%;
+  height: 100vh;
+  background-color: #015EFF;
+}
+
+.rightbar__searchbox{
+  margin: 10% 5%;
+  padding: 7%;
+  display: flex;
+  align-items: center;
+  border:  1px solid black;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  color: #FFFFFF;
+}
+
+.user-icon{
+  display: inline;
+}
+.userlist__user{
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  color:#FFFFFF
+}
+
+.userlist__user p{
+  color:#FFFFFF;
+  font-size: 1.5rem;
+}
+
+.search-icon{
+  margin: 0 7px;
+}
+
+.icon{
+  margin: 2px 10px;
+  font-size: 2rem; 
+  color:#FFFFFF;
+}
+
+/*  ChannelContainer Css */
+
+.grp-description{
+  display: flex;
+  justify-content: space-between;
+}
