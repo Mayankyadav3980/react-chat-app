@@ -183,7 +183,8 @@ font-size: 1.5rem;
   /* left:10px; */
   width: 100%;
   height: 7vh;
-  /* border: 1px solid red; */
+  /* height: fit-content; */
+  /* border: 1px solid black; */
   margin-top: 20px;
 }
 .msg-inp{
@@ -192,11 +193,41 @@ font-size: 1.5rem;
   left:10px; */
   width: 85%;
   height: 7vh;
+  display: flex;
+  align-items: center;
+  border: 1px solid #9a9999;
   border-radius: 30px;
-  font-size: 1.5rem;
+  
   padding-left: 1rem ;
   margin-left: 1rem;
-  /* border: 1px solid black; */
+  /* border: 1px solid red; */
+}
+
+.msg-inp-inner{
+  width: 90%;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  
+}
+.emoji-picker{
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+}
+.emoji-picker .btn{
+  font-size: 2rem;
+}
+.emojis{
+  position: absolute; 
+  bottom: 60px;
+  right: 0;
+}
+
+.msg-inp-box .button{
+  background: transparent;
+  outline: none;
+  border: none;
 }
 .msg-inp-box button{
   font-size: 3rem;

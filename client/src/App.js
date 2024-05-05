@@ -1,15 +1,14 @@
-import './App.css';
+import "./App.css";
 
-import { ChannelContainer, ChannelListContainer } from './components';
+import { ChannelContainer, ChannelListContainer } from "./components";
 
 const App = () => {
-  return(
-    <div className='container'> 
-
-    <ChannelListContainer/>
-    <ChannelContainer/>
+  return (
+    <div className="container">
+      <ChannelListContainer />
+      <ChannelContainer />
     </div>
   );
-}
+};
 
 export default App;

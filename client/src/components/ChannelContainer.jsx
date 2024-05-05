@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import { ChannelInner, CreateChannel, EditChannel, TeamMessage } from './'
-import { HiOutlineUsers } from "react-icons/hi2";
-import { FaArrowAltCircleRight } from "react-icons/fa";
-import MessageBox from './MessageBox';
+import { MessageInputBox, MessageBox, Header } from './'
+
 
 const ChannelContainer = () => {
   const [msgList, setMsgList] = useState([]);
@@ -12,6 +10,7 @@ const ChannelContainer = () => {
   });
   const user_list = ["Alan", "Bob", "Carol", "Dean", "Elin", "Alan", "Bob", "Carol", "Dean", "Elin"];
 
+  
   const handleChange = (event) =>{
     setCurMsg( {
       msg:event.target.value,
@@ -19,7 +18,6 @@ const ChannelContainer = () => {
   });
   }
   const handleClick =( event) =>{
-    // setCurMsg(event.target.value);
     setMsgList( (prev) => {
       return [...msgList , curMsg ];
     })
@@ -31,20 +29,11 @@ const ChannelContainer = () => {
     
     <>
     <div className="channel-container">
+
       {/* header */}
-      <div className="channel-container__header">
-        <div className="header__name">
-        <p>Introductions</p>
-        <span className="sub-heading"> 3 | 100  <HiOutlineUsers/></span>
-        </div>
-        <p className="sub-heading">
-          This Channel Is For Company Wide Chatter
-        </p>
-        
-      </div>
+      <Header/>
 
       {/* msg container  */}
-
       <div className="msg-container">
         { msgList.map((obj, index) => {
           return(  
@@ -58,16 +47,12 @@ const ChannelContainer = () => {
       </div>  
 
       {/* msg input box */}
-      <div className='msg-inp-box'> 
-      <input 
-      type="text"
-      placeholder='type message here...'
-      className='msg-inp'
-      value={ curMsg.msg }
-      onChange={ handleChange }
+      <MessageInputBox
+        curMsg = {curMsg.msg}
+        setCurMsg ={ setCurMsg }
+        handleChange = {handleChange}
+        handleClick = {handleClick}
       />
-      <button onClick={ handleClick }> <FaArrowAltCircleRight/></button>
-      </div>
       
       
     </div>
