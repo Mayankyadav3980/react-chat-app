@@ -1,49 +1,52 @@
-import React, { useState } from 'react'
-import { FaArrowAltCircleRight } from "react-icons/fa";
+import React, { useState } from "react";
+import { LuSendHorizonal } from "react-icons/lu";
 import { BsEmojiSmile } from "react-icons/bs";
-import  Picker from "@emoji-mart/react";
-import data from '@emoji-mart/data';
+import Picker from "@emoji-mart/react";
+import data from "@emoji-mart/data";
+import { Mention, MentionsInput } from "react-mentions";
+import defaultStyle from "../assets/defaultStyle.js";
+import user_list from "../assets/user_list.js";
 
-// import "emoji-mart/css/emoji-mart.css"
-// import "emoji-mart"
-
-const MessageInputBox = ({curMsg, setCurMsg, handleChange, handleClick}) => {
+const MessageInputBox = ({ curMsg, setCurMsg, handleChange, handleClick }) => {
   const [showEmojis, setShowEmojis] = useState(false);
-  // const [ currentEmoji, setCurrentEmoji] = useState(null);
 
   const handleEmojiClick = () => {
     setShowEmojis(!showEmojis);
-    // console.log('i m clicked');
-  } 
+  };
   const addEmoji = (e) => {
-    // setCurrentEmoji(e.native);
-    setCurMsg({msg:(curMsg + e.native), likeCount:0} );
+    setCurMsg({ msg: curMsg + e.native, likeCount: 0 });
     setShowEmojis(!showEmojis);
-  }
+  };
 
   return (
-    <div className='msg-inp-box'> 
-    <div className="msg-inp">
-      <input 
-        type="text"
-        placeholder='type message here...'
-        className='msg-inp-inner'
-        value={ curMsg }
-        onChange={ handleChange }
-        />
+    <div className="msg-inp-box">
+      <div className="msg-inp">
+        <MentionsInput
+          value={curMsg}
+          onChange={handleChange}
+          placeholder={"  type message here... / mention people using '@'"}
+          className="msg-inp-inner"
+          style={defaultStyle}
+        >
+          <Mention data={user_list} style={{ backgroundColor: "#5BBCFF" }} />
+        </MentionsInput>
         <div className="emoji-picker">
-            { showEmojis && (  <div className='emojis'><Picker 
-              data={data} 
-              onEmojiSelect = { addEmoji } 
-              /> </div> )
-           }
-            <button type='button' className="btn" onClick={handleEmojiClick}><BsEmojiSmile/></button>
+          {showEmojis && (
+            <div className="emojis">
+              <Picker data={data} onEmojiSelect={addEmoji} />{" "}
+            </div>
+          )}
+          <button type="button" className="btn" onClick={handleEmojiClick}>
+            <BsEmojiSmile />
+          </button>
         </div>
-       
-    </div>
-      <button onClick={ handleClick }> <FaArrowAltCircleRight/></button>
       </div>
-  )
-}
+      { curMsg != '' && <button onClick={handleClick} >
+        {" "}
+        <LuSendHorizonal />
+      </button> }
+    </div>
+  );
+};
 
-export default MessageInputBox
+export default MessageInputBox;

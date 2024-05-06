@@ -7,7 +7,6 @@ const Header = () => {
       <div className="header__name">
         <p>Introductions</p>
         <span className="sub-heading">
-          {" "}
           3 | 100 <HiOutlineUsers />
         </span>
       </div>
